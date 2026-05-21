@@ -1,0 +1,28 @@
+{
+  "name": "@medexplorer/ui",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components/*": "./src/components/*.vue"
+  },
+  "scripts": {
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.0",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^15.11.6",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.5",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.1.10"
+  }
+}

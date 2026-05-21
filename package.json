@@ -1,0 +1,32 @@
+{
+  "name": "infokes",
+  "private": true,
+  "version": "1.0.0",
+  "description": "MedExplorer - Windows Explorer-like clinical repository (Bun monorepo)",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "tests/*"
+  ],
+  "scripts": {
+    "dev:api": "bun run --filter '@medexplorer/api' dev",
+    "dev:web": "bun run --filter '@medexplorer/web' dev",
+    "build": "bun run --filter '*' build",
+    "test": "bun run --filter '*' test",
+    "test:e2e": "bun run --filter '@medexplorer/e2e' test",
+    "lint": "bun run --filter '*' lint",
+    "typecheck": "bun run --filter '*' typecheck",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "db:migrate": "bun run --filter '@medexplorer/api' db:migrate",
+    "db:seed": "bun run --filter '@medexplorer/api' db:seed",
+    "db:reseed": "bun run --filter '@medexplorer/api' db:reseed"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  }
+}

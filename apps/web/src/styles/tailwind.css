@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body { height: 100%; }
+}
+
+/*
+ * Tailwind's `font-*` utilities only set font-family. The mockup pairs each
+ * `font-X` with the matching `text-X` (size + line-height + weight).
+ * Auto-apply the size+leading whenever the font-family class appears, so
+ * components stay clean and match the design verbatim.
+ */
+@layer components {
+  .font-body-sm        { @apply text-body-sm; }
+  .font-body-md        { @apply text-body-md; }
+  .font-label-caps     { @apply text-label-caps; }
+  .font-headline-lg-mobile { @apply text-headline-lg-mobile; }
+  .font-headline-lg    { @apply text-headline-lg; }
+  .font-headline-xl    { @apply text-headline-xl; }
+}
+
+/* Material Symbols variation utilities (ported from medexplorer.html) */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga";
+}
+.vitality-stroke {
+  font-variation-settings: "wght" 300, "FILL" 0;
+}
+.vitality-stroke-filled {
+  font-variation-settings: "wght" 300, "FILL" 1;
+}
+.medical-glow {
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}

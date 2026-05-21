@@ -1,0 +1,36 @@
+{
+  "name": "@medexplorer/api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "bun --watch run src/index.ts",
+    "start": "bun run src/index.ts",
+    "build": "bun build src/index.ts --target=bun --outdir dist",
+    "typecheck": "tsc --noEmit",
+    "test": "bun run test:unit && bun run test:integration",
+    "test:unit": "vitest run --config vitest.unit.config.ts",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "bun run src/infrastructure/persistence/drizzle/migrate.ts",
+    "db:seed": "bun run scripts/seed.ts",
+    "db:reseed": "bun run scripts/seed.ts -- --force",
+    "db:stress-seed": "bun run scripts/stress-seed.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.1.1",
+    "@elysiajs/swagger": "^1.1.6",
+    "@medexplorer/shared": "workspace:*",
+    "drizzle-orm": "^0.36.4",
+    "elysia": "^1.1.26",
+    "postgres": "^3.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "drizzle-kit": "^0.28.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.5"
+  }
+}

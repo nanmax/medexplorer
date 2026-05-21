@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: infokes-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: infokes
+      POSTGRES_PASSWORD: infokes
+      POSTGRES_DB: infokes
+    ports:
+      - "5432:5432"
+    volumes:
+      - infokes-pgdata:/var/lib/postgresql/data
+      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U infokes -d infokes"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  infokes-pgdata:
